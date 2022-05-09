@@ -70,7 +70,6 @@ export default class ProductForm extends Component {
         const productType = productTypeContainer.value;
 
         if (sku && name && price && productType && regexPattern.test(price) && attributeError) {
-            console.log('OK');
             let attributes = [];
             attributesHTML.forEach((attributeHTML) => {
                 attributes.push(parseFloat(attributeHTML.value));
