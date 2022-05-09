@@ -1,0 +1,16 @@
+form {
+  //label, input {
+  //  margin: auto 0;
+  //
+  //  &:first-child {
+  //    margin-right: 2em;
+  //  }
+  //}
+  label {
+    width: 8em;
+    text-align: left;
+  }
+  .col-sm-10 {
+    max-width: 15em;
+  }
+}
