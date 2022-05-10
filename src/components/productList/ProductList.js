@@ -8,7 +8,7 @@ export default class ProductList extends Component {
 
 
 
-    deleteAllItems = (event) => {
+    deleteAllItems = () => {
         const productServiceAPI = new ProductServiceAPI();
         let checkboxes = document.querySelectorAll('.delete-checkbox:checked');
 
@@ -16,7 +16,7 @@ export default class ProductList extends Component {
             let response = true;
             checkboxes.forEach((input) => {
                 let sku = input.value;
-                productServiceAPI.deleteProduct(sku).then((result) => {
+                productServiceAPI.deleteProduct(sku).then(() => {
                     if (!response.response) {
                         response = false;
                     }
@@ -71,7 +71,7 @@ export default class ProductList extends Component {
     }
 
     renderItems(arr) {
-        return arr.map((item, index) => {
+        return arr.map((item) => {
             let {sku} = item;
             return(
                 <Col key={sku}>
