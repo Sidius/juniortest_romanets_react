@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Card, Form} from "react-bootstrap";
+import {Card} from "react-bootstrap";
 
 export default class ProductItem extends Component {
 
@@ -34,9 +34,9 @@ export default class ProductItem extends Component {
             <Card key={sku} style={{paddingBottom: '2em',}}>
                 <Card.Body>
                     <Card.Title align="left">
-                        <Form.Check
+                        <input
                             type="checkbox"
-                            className="delete-checkbox"
+                            className="form-check-input delete-checkbox"
                             name="sku"
                             value={sku}
                         />

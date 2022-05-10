@@ -29,7 +29,7 @@ export default class ProductsPage extends Component {
 
     deleteAllItems() {
         const productServiceAPI = new ProductServiceAPI();
-        let checkboxes = document.querySelectorAll('.delete-checkbox input:checked');
+        let checkboxes = document.querySelectorAll('.delete-checkbox:checked');
 
         if (checkboxes.length !== 0) {
             let response = true;
