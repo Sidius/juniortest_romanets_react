@@ -58,7 +58,6 @@ export default class ProductList extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state.update);
         if (this.state.update) {
             const {getData} = this.props;
             getData().then((itemList) => {
