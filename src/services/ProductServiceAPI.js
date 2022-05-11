@@ -71,13 +71,13 @@ export default class ProductServiceAPI {
 
         const units = await this.getProductUnitsOnTypeID(productTypeID);
 
-        await units.response.forEach((unit, index) => {
-            this.addProductAttribute({
+        await Promise.all(units.response.map(async (unit, index) => {
+            await this.addProductAttribute({
                 productSku: sku,
                 productTypeUnitId: unit.id,
                 value: attributeBody[index],
             });
-        });
+        }));
 
         return this._transformResponseBool(response);
     }
