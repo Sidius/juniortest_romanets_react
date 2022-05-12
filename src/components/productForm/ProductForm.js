@@ -45,8 +45,6 @@ export default class ProductForm extends Component {
             }
         });
 
-        console.log();
-
         this.setState({
             isInValidPrice: !regexPattern.test(this.state.price),
         });

@@ -11,7 +11,6 @@ export default class ProductAttributes extends Component {
         const name = e.currentTarget.name;
         const value = e.currentTarget.value;
         const regexPattern = /^[0-9]*[,.]?[0-9]{0,2}$/;
-        console.log(this.state[name]);
         this.setState({
             [name]: !regexPattern.test(value),
         });

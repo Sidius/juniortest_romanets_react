@@ -6,7 +6,9 @@ import ProductServiceAPI from "../../services/ProductServiceAPI";
 
 export default class ProductList extends Component {
 
-
+    goToAddProduct() {
+        window.location.pathname = "/add-product";
+    }
 
     deleteAllItems = () => {
         const productServiceAPI = new ProductServiceAPI();
@@ -32,15 +34,16 @@ export default class ProductList extends Component {
         title: "Product List",
         navButtons: [
             {
-                title: "Add",
-                link: "/add-product",
-                id: null
+                title: "ADD",
+                onClick: this.goToAddProduct,
+                id: "add",
+                type: "button",
+                className: "ADD",
             },
             {
-                title: "Mass delete",
+                title: "MASS DELETE",
                 id: "delete-product-btn",
                 onClick: this.deleteAllItems,
-                object: this,
             },
         ],
         itemList: null,

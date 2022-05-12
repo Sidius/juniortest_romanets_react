@@ -7,14 +7,21 @@ import {Link} from "react-router-dom";
 export default class Header extends Component {
 
     renderItems() {
-        return this.props.buttons.map(({id, title, link, onClick, type}) => {
+        return this.props.buttons.map(({id, title, link, onClick, type, className}) => {
             let button = null
             if (link) {
-                button = (<Link to={link} className="btn btn-outline-primary" style={{textTransform: 'uppercase',}}>
+                button = (<Link to={link} className={"btn btn-outline-primary " + className} style={{textTransform: 'uppercase',}}>
                     {title}
                 </Link>);
             } else {
-                button = (<Button variant="outline-primary" id={id} onClick={onClick} style={{textTransform: 'uppercase',}} type={type}>
+                button = (<Button
+                    variant="outline-primary"
+                    id={id}
+                    onClick={onClick}
+                    style={{textTransform: 'uppercase',}}
+                    type={type}
+                    className={className}
+                >
                     {title}
                 </Button>);
             }
