@@ -72,13 +72,17 @@ export default class ProductForm extends Component {
             attributesHTML.forEach((attributeHTML) => {
                 attributes.push(parseFloat(attributeHTML.value));
             });
-            productServiceAPI.addProduct({
-                sku: sku,
-                name: name,
-                price: parseFloat(price),
-                productTypeID: parseInt(productType),
-            }, attributes).then((response) => {
-                window.location.pathname = '/';
+            productServiceAPI.existProduct(sku).then((response) => {
+                if (response.response) {
+                    productServiceAPI.addProduct({
+                        sku: sku,
+                        name: name,
+                        price: parseFloat(price),
+                        productTypeID: parseInt(productType),
+                    }, attributes).then((response) => {
+                        window.location.pathname = '/';
+                    });
+                }
             });
         }
     };
@@ -90,6 +94,18 @@ export default class ProductForm extends Component {
             [name]: value,
         });
     }
+
+    // handleInputSKU = (e) => {
+    //     const productServiceAPI = new ProductServiceAPI();
+    //     const value = e.currentTarget.value;
+    //     if (value) {
+    //         productServiceAPI.existProduct(value).then((response) => {
+    //             this.setState({
+    //                 validated: response.response,
+    //             });
+    //         });
+    //     }
+    // }
 
     componentDidMount() {
         const {getProductTypes} = this.props;
@@ -173,7 +189,14 @@ export default class ProductForm extends Component {
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label htmlFor="sku" column sm="2">SKU</Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" placeholder="#sku" id="sku" name="sku" required />
+                            <Form.Control
+                                type="text"
+                                placeholder="#sku"
+                                id="sku"
+                                name="sku"
+                                required
+                                // onChange={this.handleInputSKU}
+                            />
                             <Form.Control.Feedback type="invalid">Please, submit required data</Form.Control.Feedback>
                         </Col>
                     </Form.Group>

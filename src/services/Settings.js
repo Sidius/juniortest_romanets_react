@@ -1,5 +1,5 @@
 export default class Setting {
     static API_SETTINGS = {
-        url: 'https://juniortest.romanets.romanetsenterprises.com',
+        url: 'https://juniortest.romanets.romanetsenterprises.com', // http://juniortest.romanets.local
     };
 }

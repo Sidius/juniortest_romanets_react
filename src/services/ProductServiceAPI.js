@@ -92,6 +92,11 @@ export default class ProductServiceAPI {
         return this._transformResponseBool(result);
     }
 
+    existProduct = async (sku) => {
+        const response = await this.addResource(`/existProduct?sku=${sku}`);
+        return this._transformResponseBool(response);
+    }
+
     isSet(data) {
         if (data) {
             return data;
